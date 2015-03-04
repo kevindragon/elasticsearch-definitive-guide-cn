@@ -152,6 +152,21 @@ GET /megacorp/employee/_search
 }
 ```
 
+>**注意**：
+
+>如果使用浏览器发送上面的请求，就没有办法编辑请求体了。如果使用head插件的话，使用GET请求也是没有办法得到正确的结果。
+>可以使用curl命令来发送上面的请求与请求体
+>```Javascript
+>curl -XGET http://localhost:9200/megacorp/employee/_search -d '
+>{
+>    "query" : {
+>        "match" : {
+>            "last_name" : "Smith"
+>        }
+>    }
+>}
+>'
+
 这会返回与之前查询相同的结果。你可以看到有些东西做了改变，我们不再使用**查询字符串(query string)**做为参数，而是使用请求体代替。这个请求体使用JSON表示，其中使用了`match`语句（查询类型之一，其余我们将在接下来的章节学习到）。
 
 ## 更复杂的搜索
