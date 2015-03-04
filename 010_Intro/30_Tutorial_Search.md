@@ -157,7 +157,7 @@ GET /megacorp/employee/_search
 >如果使用浏览器发送上面的请求，就没有办法编辑请求体了。如果使用head插件的话，使用GET请求也是没有办法得到正确的结果。
 >可以使用curl命令来发送上面的请求与请求体
 >```Javascript
->curl -XGET http://localhost:9200/megacorp/employee/_search -d '
+>curl -XGET http://localhost:9200/megacorp/employee/_search?pretty -d '
 >{
 >    "query" : {
 >        "match" : {
